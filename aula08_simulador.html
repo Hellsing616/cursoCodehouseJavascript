@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Crédito</title>
+</head>
+<body>
+
+<script>
+    // Classe Cliente
+    class Cliente {
+        constructor(nome, idade, sexo, cpf) {
+            this.nome = nome;
+            this.idade = idade;
+            this.sexo = sexo;
+            this.cpf = cpf;
+        }
+    }
+
+    // Classe Credito
+    class Credito {
+        calcularEmprestimo(valor) {
+          if(valor >=3000){
+            return 5000;
+          }if (valor >=2999){
+            return 2000;
+          }else{
+            return 300;
+          }          
+        }
+    }
+
+    // Classe Conta
+    class Conta {
+        constructor(numeroConta, saldo) {
+            this.numeroConta = numeroConta;
+            this.saldo = saldo;
+        }
+
+        verificarEmprestimo(valor) {
+            if (this.saldo === 0) {
+                alert("Empréstimo não permitido. Saldo igual a zero.");
+            } else if (this.saldo <= 200) {
+                const credito = new Credito();
+                const valorEmprestimo = credito.calcularEmprestimo(valor);
+                alert(`Empréstimo liberado de R$ ${valorEmprestimo.toFixed(2)}.\nDeve ser pago em 3 parcelas.`);
+            } else {
+                alert("Saldo suficiente. Nenhuma ação necessária.");
+            }
+        }
+    }
+
+    // Função para acionar o simulador
+    function simularCredito() {
+        const nome = prompt("Digite o nome do cliente:");
+        const idade = prompt("Digite a idade do cliente:");
+        const sexo = prompt("Digite o sexo do cliente:");
+        const cpf = prompt("Digite o CPF do cliente:");
+        const numeroConta = prompt("Digite o número da conta:");
+        const saldo = prompt("Digite o saldo da conta:");
+
+        const cliente = new Cliente(nome, idade, sexo, cpf);
+        const conta = new Conta(numeroConta, parseFloat(saldo));
+
+        const valorEmprestimo = prompt("Digite o valor do empréstimo:");
+
+        conta.verificarEmprestimo(parseFloat(valorEmprestimo));
+    }
+</script>
+
+<button onclick="simularCredito()">Simular Crédito</button>
+
+</body>
+</html>
