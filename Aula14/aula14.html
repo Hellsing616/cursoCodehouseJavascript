@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="aula14.css">
+</head>
+<body>
+    <nav class="navbar">Navbar</nav>
+    <div class="container">
+        <div class="card">
+            <h2>Calculadora</h2>
+            <div>
+                <label for="num1">Número 1:</label>
+                <input type="number" id="num1" />
+            </div>
+            <div>
+                <label for="num2">Número 2:</label>
+                <input type="number" id="num2" />
+            </div>
+            <button onclick="soma()">Calcular Soma</button>
+            <button onclick="calcularIMC()">Calcular IMC</button>
+            <button onclick="calcularPreco()">Calcular Preço</button>
+            <button onclick="gerarCPF()">Gerar CPF</button>
+            <button onclick="verificarPrimo()">Verificar Primo</button>
+        </div>
+        <div class="result-table">
+            <h2>Resultados</h2>
+            <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th>Soma</th>
+                        <th>IMC</th>
+                        <th>Preço</th>
+                        <th>CPF</th>
+                        <th>Primo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Os resultados serão exibidos aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="footer">Rodapé</footer>
+    <script src="aula14.js"></script>
+</body>
+</html>
